@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npm run build && node dist/app.js",
     "build": "tsc",
+    "debug":"tsc:build -tsconfig.json", 
     "lint": "eslint --ignore-path .gitignore src/ && prettier --check --ignore-path .gitignore . && tsc --noEmit ",
     "lint:fix": "eslint --ignore-path .gitignore src/ --fix && prettier --write --ignore-path .gitignore . && tsc --noEmit",
     "prepare": "husky install"
@@ -15,15 +16,16 @@
     "@typescript-eslint/parser": "^5.26.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
+    "cli-menu": "^1.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "envalid": "^7.3.1",
     "eslint-plugin-import": "^2.26.0",
     "lodash": "^4.17.21",
-    "typescript": "^4.7.2",
     "ts-node": "^10.9.1",
     "tsc-alias": "^1.7.1",
-    "tslib": "^2.4.1"
+    "tslib": "^2.4.1",
+    "typescript": "^4.7.2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
