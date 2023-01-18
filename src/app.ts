@@ -21,7 +21,7 @@ export default function app(): void {
         name: 'Load and view config',
         action: () => {
           console.clear();
-          currentRules = lifeFiles.readWorldConfig('./world-rules.json');
+          currentRules = lifeFiles.readWorldConfig('./dist/world-rules.json');
           console.log(currentRules);
         },
       },
@@ -52,7 +52,7 @@ export default function app(): void {
         name: 'Load World',
         action: () => {
           console.clear();
-          mainWorld = lifeFiles.loadGame('./save-game.json');
+          mainWorld = lifeFiles.loadGame('./dist/save-game.json');
           showWorld(mainWorld, 1);
         },
       },
