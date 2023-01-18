@@ -3,5 +3,5 @@
   "birthCell": 3,
   "overpopulatedCell": 3,
   "worldSize": 25,
-  "steps": 100
+  "steps": 1000000
 }

@@ -5,11 +5,9 @@ import * as lifeFiles from './life-files';
 import { makeNewWorld, showWorld } from './life-logic';
 // eslint-disable-next-line import/no-unresolved
 import { playGame } from './life-logic';
-import { isBreakOrContinueStatement } from 'typescript';
-// eslint-disable-next-line import/no-unresolved
 
 export default function app(): void {
-  let currentRules = lifeFiles.readWorldConfig('./src/world-rules.json');
+  let currentRules = lifeFiles.readWorldConfig('./world-rules.json');
   let mainWorld = Array.from(
     Array(currentRules.worldSize),
     () => new Array(currentRules.worldSize),
@@ -23,7 +21,7 @@ export default function app(): void {
         name: 'Load and view config',
         action: () => {
           console.clear();
-          currentRules = lifeFiles.readWorldConfig('./src/world-rules.json');
+          currentRules = lifeFiles.readWorldConfig('./world-rules.json');
           console.log(currentRules);
         },
       },
@@ -41,8 +39,12 @@ export default function app(): void {
         name: 'Play Game',
         action: () => {
           console.clear();
-          mainWorld = playGame(mainWorld, currentRules);
-          showWorld(mainWorld, currentRules.steps);
+          if (mainWorld[0][0] != 0) {
+            console.log('Make new World!');
+          } else {
+            mainWorld = playGame(mainWorld, currentRules);
+            showWorld(mainWorld, currentRules.steps);
+          }
         },
       },
       {
@@ -50,7 +52,7 @@ export default function app(): void {
         name: 'Load World',
         action: () => {
           console.clear();
-          mainWorld = lifeFiles.loadGame('./src/save-game.json');
+          mainWorld = lifeFiles.loadGame('./save-game.json');
           showWorld(mainWorld, 1);
         },
       },
@@ -59,7 +61,7 @@ export default function app(): void {
         name: 'Save world',
         action: () => {
           console.clear();
-          lifeFiles.saveGame('./src/save-game.json', mainWorld);
+          lifeFiles.saveGame('./save-game.json', mainWorld);
         },
       },
       {
