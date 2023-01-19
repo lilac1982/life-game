@@ -42,8 +42,11 @@ export default function app(): void {
           if (mainWorld[0][0] != 0) {
             console.log('Make new World!');
           } else {
+            const startLife = new Date().getTime();
             mainWorld = playGame(mainWorld, currentRules);
+            const endLife = new Date().getTime();
             showWorld(mainWorld, currentRules.steps);
+            console.log(`Time to life: ${endLife - startLife}ms`);
           }
         },
       },
